@@ -5,6 +5,7 @@
 #include "Blueprint/UserWidget.h"
 #include "CoreMinimal.h"
 #include "Interfaces/OnlineSessionInterface.h"
+
 #include "Menu.generated.h"
 
 /**
@@ -16,7 +17,7 @@ class MULTIPLAYERSESSIONS_API UMenu : public UUserWidget
 	GENERATED_BODY()
 public:
 	UFUNCTION(BlueprintCallable)
-	void MenuSetup(int32 NumberOfPublicConnections = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")));
+	void MenuSetup(int32 NumberOfPublicConnections = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")), FString LobbyPath = FString(TEXT("/MultiplayerSessions/Lobby")));
 
 protected:
 	virtual bool Initialize() override;
@@ -52,4 +53,5 @@ private:
 
 	int32 NumPulicConnections{4};
 	FString MatchType{FString(TEXT("FreeForAll"))};
+	FString PathToLobby{FString(TEXT("/MultiplayerSessions/Lobby"))};
 };
